@@ -1,0 +1,17 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: RoR_reddit_dev
+  pool: 5
+  username: padels
+  password: padels3005
+  socket: /var/run/mysqld/mysqld.sock
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: RoR_reddit
+  pool: 5
+  username: padels
+  password: padels3005
+  socket: /var/run/mysqld/mysqld.sock

@@ -14,7 +14,8 @@ class LinksController < ApplicationController
 
   # GET /links/new
   def new
-    @link = Link.new
+    #@link = Link.new
+    @link = current_user.links.build
   end
 
   # GET /links/1/edit
@@ -24,8 +25,8 @@ class LinksController < ApplicationController
   # POST /links
   # POST /links.json
   def create
-    @link = Link.new(link_params)
-
+    #@link = Link.new(link_params)
+    @link = current_user.links.build(link_params)
     respond_to do |format|
       if @link.save
         format.html { redirect_to @link, notice: 'Link was successfully created.' }
@@ -71,4 +72,9 @@ class LinksController < ApplicationController
     def link_params
       params.require(:link).permit(:title, :url)
     end
+
+    def current_user?(user)
+     user == current_user
+    end
+
 end

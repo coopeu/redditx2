@@ -38,6 +38,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    acts_as_votable (0.11.1)
     arel (8.0.0)
     bcrypt (3.1.11)
     bindex (0.5.0)
@@ -170,22 +171,23 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  acts_as_votable
   bcrypt
   byebug
   coffee-rails
   devise
   jbuilder
-  listen (>= 3.0.5, < 3.2)
+  listen
   mysql2
   puma
   rails
   sass-rails
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   turbolinks
   tzinfo-data
   uglifier
-  web-console (>= 3.3.0)
+  web-console
 
 BUNDLED WITH
    1.16.0

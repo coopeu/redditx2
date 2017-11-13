@@ -1,23 +1,64 @@
-<p id="notice"><%= notice %></p>
+<p><%= notice %></p>
 
 <h1>Links</h1>
 
-<table>
+
+<script type='text/javascript'>
+  $('table').tablesort();
+  var tablesort = $('table').data('tablesort');   // Get a reference to it's tablesort instance
+  th.sorted.ascending:after {
+  content: "  \2191";
+  }
+  th.sorted.descending:after {
+  content: " \2193";
+  }
+</script>
+
+<table class="ui single line striped sortable celled table">
   <thead>
     <tr>
       <th>Title</th>
-      <th>Url</th>
+      <th class="no-sort">Url</th>
       <th>User</th>
+      <th> </th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
+
+<style type="text/css">
+	
+/* unvisited link */
+a:link {
+    color: green;
+}
+
+/* visited link */
+a:visited {
+    color: green;
+}
+
+/* mouse over link */
+a:hover {
+    color: red;
+    background-color:#ffffcc;
+}
+
+/* selected link */
+a:active {
+    color: black;
+}
+
+</style>
+
+
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><%= link.title %></td>
-        <td><%= link.url %></td>
+        <td><div class='ui medium header'><%= link_to link.title, link, :class => "" %></div></td>
+        <td><%= link_to link.url, link.url %></td>
         <td><%= link.user_id %></td>
+        <td class='center aligned'><%= link_to like_link_path(link), method: :put do %><i class="thumbs up icon"></i><%= link.get_upvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to dislike_link_path(link), method: :put do %><i class="thumbs down icon"></i><%= link.get_downvotes.size %><% end %></td>
         <td><%= link_to 'Show', link %></td>
 <% if user_signed_in? %>
         <td><%= link_to 'Edit', edit_link_path(link) %></td>

@@ -9,6 +9,8 @@
   <strong>Url:</strong>
   <%= @link.url %>
 </p>
-
+<p>
+<%= link_to like_link_path(@link), method: :put do %><i class="thumbs up icon"></i><%= @link.get_upvotes.size %><% end %>&nbsp;&nbsp;<%= link_to dislike_link_path(@link), method: :put do %><i class="thumbs down icon"></i><%= @link.get_downvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>
+</p>

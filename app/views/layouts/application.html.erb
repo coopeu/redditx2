@@ -32,7 +32,7 @@
     <% if user_signed_in? %>
 
         <%= link_to 'Submit link', new_link_path, :class=>'item' %>
-        <%= link_to current_user.email, edit_user_registration_path, :class=>'item' %>
+        <%= link_to current_user.username, edit_user_registration_path, :class=>'ui inverted olive mini button' %>
         <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class=>'item' %>
     <% else %>
         <div class='middle aligned item'><b><i>Guest</i></b></div>

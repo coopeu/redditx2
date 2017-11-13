@@ -14,29 +14,25 @@
  *= require_self
  */
 
-#normallinks {
-
+.normallinks {
+	align-content: right;
 	/* unvisited link */
 	a:link {
 	    color: green;
 	}
-	
 	/* visited link */
 	a:visited {
 	    color: green;
 	}
-	
 	/* mouse over link */
 	a:hover {
 	    color: red;
 	    background-color:#ffffcc;
 	}
-	
 	/* selected link */
 	a:active {
 	    color: black;
 	}
-
 }
 
 

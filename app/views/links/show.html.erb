@@ -1,4 +1,22 @@
-<p id="notice"><%= notice %></p>
+<style type="text/css">
+/* unvisited link */
+a:link {
+    color: green;
+}
+/* visited link */
+a:visited {
+    color: blue;
+}
+/* mouse over link */
+a:hover {
+    color: red;
+    background-color:#ffffcc;
+}
+/* selected link */
+a:active {
+    color: black;
+}
+</style>
 
 <p>
   <strong>Title:</strong>
@@ -7,7 +25,8 @@
 
 <p>
   <strong>Url:</strong>
-  <%= @link.url %>
+  <%#= @link.url %>
+  <%= link_to @link.url,@link.url, class: "normallink"  %>
 </p>
 <p>
 <%= link_to like_link_path(@link), method: :put do %><i class="thumbs up icon"></i><%= @link.get_upvotes.size %><% end %>&nbsp;&nbsp;<%= link_to dislike_link_path(@link), method: :put do %><i class="thumbs down icon"></i><%= @link.get_downvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;

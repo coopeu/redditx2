@@ -1,7 +1,10 @@
-<%= content_tag_for(:div, comment) do %>
-		<div class="">
-			<p class=""><%= comment.body %><small><BR/>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></p>
-		</div>
+			<% if comment.user == current_user -%>
+			<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "ui right floated negative mini button" %>
+			<% end %>
+			
+			<%= content_tag_for(:div, comment) do %>
+			<p class="ui floated left content"><%= comment.body %><small><BR/>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></p>
+<!--
 <style type="text/css">
 /* unvisited link */
 a:link {
@@ -21,11 +24,6 @@ a:active {
     color: black;
 }
 </style>
-		<div class="ui form">
-			<% if comment.user == current_user -%>
-				<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "normallinks" %>
-			<% end %>
-			<BR/>
-			<HR/>
-		</div>
+-->
+	<BR/><p><HR/></p><BR/>
 <% end %>

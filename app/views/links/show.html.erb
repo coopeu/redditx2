@@ -14,3 +14,24 @@
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>
 </p>
+
+<h3 class="">
+	<% if @link.comments.count > 0 %>
+		<%= @link.comments.count %>
+	<%end%>
+		<%= 'Comment'.pluralize(@link.comments.count) %> 
+</h3>
+
+
+<div id="ui form">
+  <%= render :partial => @link.comments %>
+</div>
+
+
+<%= simple_form_for [@link, Comment.new] do |f| %>
+<%#= simple_form_for [@link, @link.comments.new] do |f| %>
+  <div class="ui form">
+    <%= f.text_area :body, class: "field" %>
+  </div>
+  <%= f.submit "Add Comment", class: "ui submit button" %>
+<% end %>

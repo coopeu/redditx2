@@ -31,6 +31,10 @@ gem 'jbuilder'
 gem 'bcrypt'
 gem 'devise'
 gem 'acts_as_votable'
+gem 'simple_form'
+gem 'record_tag_helper'
+gem 'jquery-rails'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

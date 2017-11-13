@@ -1,0 +1,31 @@
+<%= content_tag_for(:div, comment) do %>
+		<div class="">
+			<p class=""><%= comment.body %><small><BR/>Submitted <strong><%= time_ago_in_words(comment.created_at) %> ago</strong> by <%= comment.user.email %></small></p>
+		</div>
+<style type="text/css">
+/* unvisited link */
+a:link {
+    color: green;
+}
+/* visited link */
+a:visited {
+    color: blue;
+}
+/* mouse over link */
+a:hover {
+    color: red;
+    background-color:#ffffcc;
+}
+/* selected link */
+a:active {
+    color: black;
+}
+</style>
+		<div class="ui form">
+			<% if comment.user == current_user -%>
+				<%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' }, class: "normallinks" %>
+			<% end %>
+			<BR/>
+			<HR/>
+		</div>
+<% end %>

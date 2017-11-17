@@ -58,7 +58,7 @@ a:active {
       <tr>
         <td><div class='ui medium header'><%= link_to link.title, link, :class => "" %></div></td>
         <td><%= link_to link.url, link.url %></td>
-        <td><%= link.user_id %></td>
+        <td><%#= link.user_id %><%= link_to link.user.username , user_path(link.user)%></td>
         <td class='center aligned'><%= link_to like_link_path(link), method: :put do %><i class="thumbs up icon"></i><%= link.get_upvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to dislike_link_path(link), method: :put do %><i class="thumbs down icon"></i><%= link.get_downvotes.size %><% end %></td>
         <td><%= link.comments.count %></td>
         <td><%= link_to 'Show', link %></td>

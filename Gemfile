@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'record_tag_helper'
 gem 'jquery-rails'
 
+gem 'friendly_id'
+
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

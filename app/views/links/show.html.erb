@@ -18,15 +18,13 @@ a:active {
 }
 </style>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
-
-<p>
-  <strong>Url:</strong>
+<h2>
+  Title:<strong><%#= @link.title %> <a href="<%= @link.url %>"><%= @link.title %></a></strong>
+</h2>
+<p>Submitted by <%= link_to @link.user.username, user_path(@link.user) %></p>
+<p>Url:
   <%#= @link.url %>
-  <%= link_to @link.url,@link.url, class: "normallink"  %>
+  <strong><%= link_to @link.url,@link.url, class: "normallink"  %></strong>
 </p>
 <p>
 <%= link_to like_link_path(@link), method: :put do %><i class="thumbs up icon"></i><%= @link.get_upvotes.size %><% end %>&nbsp;&nbsp;<%= link_to dislike_link_path(@link), method: :put do %><i class="thumbs down icon"></i><%= @link.get_downvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;

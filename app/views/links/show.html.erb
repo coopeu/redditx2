@@ -19,16 +19,19 @@ a:active {
 </style>
 
 <h2>
-  Title:<strong><%#= @link.title %> <a href="<%= @link.url %>"><%= @link.title %></a></strong>
+  Title:<strong><%#= @link.title %> <a href="<%= url_with_protocol(@link.url) %><%#= @link.url %>"><%= @link.title %></a></strong>
 </h2>
-<p>Submitted by <%= link_to @link.user.username, user_path(@link.user) %></p>
+<p class="ui mini">Submitted by <%= link_to @link.user.username, user_path(@link.user) %> on <%= @link.created_at.strftime("%m/%d/%Y") %></p>
 <p>Url:
   <%#= @link.url %>
   <strong><%= link_to @link.url,@link.url, class: "normallink"  %></strong>
 </p>
 <p>
 <%= link_to like_link_path(@link), method: :put do %><i class="thumbs up icon"></i><%= @link.get_upvotes.size %><% end %>&nbsp;&nbsp;<%= link_to dislike_link_path(@link), method: :put do %><i class="thumbs down icon"></i><%= @link.get_downvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;
+<% if user_signed_in? && current_user.id == @link.user.id %>
 <%= link_to 'Edit', edit_link_path(@link) %> |
+<% end %>
+
 <%= link_to 'Back', links_path %>
 </p>
 

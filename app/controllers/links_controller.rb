@@ -13,6 +13,9 @@ class LinksController < ApplicationController
   # GET /links/1
   # GET /links/1.json
   def show
+    @links = Link.all
+    @link = Link.friendly.find(params[:id])
+    @users = User.all
   end
 
   # GET /links/new

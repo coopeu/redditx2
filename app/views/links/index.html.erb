@@ -1,5 +1,3 @@
-<p><%= notice %></p>
-
 <h1>Links</h1>
 
 
@@ -56,13 +54,13 @@ a:active {
   <tbody>
     <% @links.each do |link| %>
       <tr>
-        <td><div class='ui medium header'><%= link_to link.title, link, :class => "" %></div></td>
+        <td><div class='ui medium header'><%= link_to link.title, url_with_protocol(link.url), :class => "" %></div></td>
         <td><%= link_to link.url, url_with_protocol(link.url) %></td>
         <td><%#= link.user_id %><%= link_to link.user.username , user_path(link.user)%></td>
         <td class='center aligned'><%= link_to like_link_path(link), method: :put do %><i class="thumbs up icon"></i><%= link.get_upvotes.size %><% end %>&nbsp;&nbsp;&nbsp;&nbsp;<%= link_to dislike_link_path(link), method: :put do %><i class="thumbs down icon"></i><%= link.get_downvotes.size %><% end %></td>
         <td><%= link.comments.count %></td>
         <td><%= link_to 'Show', link %></td>
-<% if user_signed_in? %>
+<% if user_signed_in? && current_user.id == link.user.id %>
         <td><%= link_to 'Edit', edit_link_path(link) %></td>
         <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 <% end %>

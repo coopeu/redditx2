@@ -1,0 +1,22 @@
+<p>User:</p><h2><%= @user.username %></h2> 
+
+<h4> Links added: </h4>
+
+<% @user.links.each do |link| %> 
+  
+
+<div class="ui relaxed divided list">
+  <div class="item">
+    <i class="large github middle aligned icon"></i>
+    <div class="content big">
+      <%= link_to link.title, link, :class => "header big" %>
+      <div class="description mini"><%= link.created_at.strftime("%m / %d / %Y") %></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<% end %>
